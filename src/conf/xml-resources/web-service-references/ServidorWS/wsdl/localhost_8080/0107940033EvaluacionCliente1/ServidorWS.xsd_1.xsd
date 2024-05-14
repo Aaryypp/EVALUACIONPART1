@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.4.0 (wsit240-7e98ff4; 2017-08-03T21:19:54+0200) JAXWS-RI/2.3.0 JAXWS-API/2.3.0 JAXB-RI/2.3.0 JAXB-API/2.3.0 svn-revision#unknown. --><xs:schema xmlns:tns="http://SW/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://SW/">
+
+<xs:element name="EliminarMedicamento" type="tns:EliminarMedicamento"/>
+
+<xs:element name="EliminarMedicamentoResponse" type="tns:EliminarMedicamentoResponse"/>
+
+<xs:element name="Mostramedica" type="tns:Mostramedica"/>
+
+<xs:element name="MostramedicaResponse" type="tns:MostramedicaResponse"/>
+
+<xs:element name="Mostrarfarma" type="tns:Mostrarfarma"/>
+
+<xs:element name="MostrarfarmaResponse" type="tns:MostrarfarmaResponse"/>
+
+<xs:element name="Mostrarsucurs" type="tns:Mostrarsucurs"/>
+
+<xs:element name="MostrarsucursResponse" type="tns:MostrarsucursResponse"/>
+
+<xs:element name="Mostratipos" type="tns:Mostratipos"/>
+
+<xs:element name="MostratiposResponse" type="tns:MostratiposResponse"/>
+
+<xs:element name="hello" type="tns:hello"/>
+
+<xs:element name="helloResponse" type="tns:helloResponse"/>
+
+<xs:complexType name="Mostrarsucurs">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="MostrarsucursResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:sucursal" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sucursal">
+<xs:sequence>
+<xs:element name="direccion" type="xs:string" minOccurs="0"/>
+<xs:element name="id_suscursal" type="xs:int"/>
+<xs:element name="tipo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Mostrarfarma">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="MostrarfarmaResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:farmacia" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="farmacia">
+<xs:sequence>
+<xs:element name="id_farma" type="xs:int"/>
+<xs:element name="medicamentos" type="tns:medicamento" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="sucursales" type="tns:sucursal" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="medicamento">
+<xs:sequence>
+<xs:element name="id_producto" type="xs:int"/>
+<xs:element name="nombre_pro" type="xs:string" minOccurs="0"/>
+<xs:element name="tipo_medi" type="tns:tipoMedicamento" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tipoMedicamento">
+<xs:sequence>
+<xs:element name="id_tipo" type="xs:int"/>
+<xs:element name="nombre_tipo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Mostratipos">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="MostratiposResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:tipoMedicamento" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="hello">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="helloResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarMedicamento">
+<xs:sequence>
+<xs:element name="parameter" type="tns:medicamento" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarMedicamentoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Mostramedica">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="MostramedicaResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:medicamento" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
